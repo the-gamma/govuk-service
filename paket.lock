@@ -1,6 +1,7 @@
 FRAMEWORK: >= NET40
 NUGET
   remote: https://www.nuget.org/api/v2
+    Deedle (1.2.5)
     FAKE (4.36)
     FSharp.Azure.StorageTypeProvider (1.7)
       WindowsAzure.Storage (>= 6.0)
