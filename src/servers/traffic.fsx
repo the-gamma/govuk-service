@@ -170,25 +170,3 @@ let app =
 
     [| for k, v in Series.observations data -> JsonValue.Array [| JsonValue.String (k.ToString("o")); JsonValue.Float v |] |]
     |> JsonValue.Array )
-
-
-(*
-let filter = Compare(Column "LocationID", Equals, 95)
-
-let ts = 
-  Storage.readFacetedTimeSeriesData connStr "[RoadID]"
-    "CAST([PedalCycles] as float),[Year],[Month],[Day]" "[gb-road-traffic-counts-daily-measurement]" filter 
-  |> Seq.groupBy (fun (rd, _, _) -> rd)
-  |> Seq.map (fun (rd, grp) -> rd => series [for _, dt, v in grp -> dt => v])
-  |> Frame.ofColumns
- 
-ts
-|> Frame.mapCols (fun _ -> Series.fillMissing Direction.Forward >> Series.fillMissing Direction.Backward)
-|> Frame.transpose
-|> Stats.sum
-|> Series.sample allDays
-|> Series.fillMissing Direction.Backward
-|> Series.chunkWhileInto (fun dt1 dt2 -> dt1.Year = dt2.Year) Stats.mean
-
-
-//*)
