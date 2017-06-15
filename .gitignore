@@ -1,6 +1,7 @@
 *.suo
 *.bak
 .ionide.debug
+*.log
 
 .fake
 .vs
